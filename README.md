@@ -105,26 +105,35 @@ El proyecto implementa Swagger UI mediante Springdoc OpenAPI, lo que permite doc
 ⚙️ Configuración (SwaggerConfig.java)
 package com.bank.app_bank.config;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.Contact;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
+
 @Configuration
-public class SwaggerConfig {
+public class OpenApiConfig {
+
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI bankAppOpenAPI(){
         return new OpenAPI()
-            .info(new Info()
-                .title("AppBank API")
+
+        .info(new Info()
+                .title("Bank App API")
+                .description("API REST para la gestión de clientes, cuentas y transacciones bancarias")
                 .version("1.0.0")
-                .description("API REST para la gestión de clientes, cuentas y transacciones bancarias.")
                 .contact(new Contact()
-                    .name("Lidys Esther Jaraba Guerra")
-                    .url("https://github.com/lidysjaraba/AppBank-Proyecto-Logica")));
+                        .name("Lidys Esther Jaraba Guerra")
+                        .email("lidys.jarabagu@amigo.edu.co")
+                        .url("https://github.com/lidysjaraba"))
+                .license(new License()
+                        .name("Apache 2.0")
+                        .url("http://springdoc.org")));
     }
 }
+
 
 📸 Evidencias con Swagger
 
